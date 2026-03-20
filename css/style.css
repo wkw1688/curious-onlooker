@@ -526,6 +526,11 @@ main {
   color: #92400e;
 }
 
+.flag-green {
+  background: #dcfce7;
+  color: #166534;
+}
+
 .pattern-list h3 {
   color: var(--text);
   margin-top: 1.2rem;
@@ -533,6 +538,40 @@ main {
 
 .pattern-list p {
   font-size: 0.95rem;
+}
+
+/* ===== Tables ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  display: block;
+}
+
+thead tr {
+  background: #f0f4f8;
+  text-align: left;
+}
+
+th, td {
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--border);
+  line-height: 1.5;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--bg);
+}
+
+@media (max-width: 640px) {
+  table {
+    font-size: 0.8rem;
+  }
+  th, td {
+    padding: 0.35rem 0.5rem;
+  }
 }
 
 .sources {
