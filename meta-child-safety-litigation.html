@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meta Child Safety Litigation &mdash; Curious Onlooker</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Snapshot card */
+    .situation-snapshot {
+      background: #f0f4f8;
+      border-left: 4px solid #2c5f8a;
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+    }
+    .snapshot-label { font-size: 0.72rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #555; margin-bottom: 0.2rem; }
+    .snapshot-value { font-size: 0.95rem; font-weight: 600; color: #1a1a1a; }
+
+    /* Exposure scenario cards */
+    .exposure-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0 2rem; }
+    .exposure-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 6px; padding: 1.1rem 1.3rem; }
+    .exposure-card .track-label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #2c5f8a; margin-bottom: 0.3rem; }
+    .exposure-card .track-amount { font-size: 1.4rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.25rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+    .exposure-card .track-note { font-size: 0.82rem; color: #555; line-height: 1.45; }
+
+    /* Legal timetable table */
+    .legal-table { width: 100%; border-collapse: collapse; margin: 1.25rem 0 1.75rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 0.85rem; }
+    .legal-table th { background: #1a1a1a; color: #fff; text-align: left; padding: 0.6rem 1rem; font-weight: 600; font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; }
+    .legal-table td { padding: 0.65rem 1rem; border-bottom: 1px solid #e0e0e0; vertical-align: top; }
+    .legal-table tr:nth-child(even) td { background: #f6f8fb; }
+    .status-verdict { background: #c0392b; color: #fff; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 3px; white-space: nowrap; }
+    .status-pending { background: #d4730a; color: #fff; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 3px; white-space: nowrap; }
+    .status-ongoing { background: #2c5f8a; color: #fff; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 3px; white-space: nowrap; }
+
+    /* Equity verdict box */
+    .equity-verdict { background: #1a1a1a; color: #f0f0f0; border-radius: 8px; padding: 1.75rem 2rem; margin: 2.5rem 0; }
+    .equity-verdict h3 { color: #fff; font-size: 1.1rem; margin-bottom: 1.1rem; border-bottom: 1px solid #333; padding-bottom: 0.65rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+    .equity-verdict .scenario-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 0.65rem 0; border-bottom: 1px solid #2a2a2a; gap: 1rem; flex-wrap: wrap; }
+    .equity-verdict .scenario-row:last-child { border-bottom: none; }
+    .equity-verdict .s-label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; min-width: 120px; }
+    .equity-verdict .s-label.base { color: #7aadcc; }
+    .equity-verdict .s-label.tail { color: #e07070; }
+    .equity-verdict .s-label.watch { color: #c9a84c; }
+    .equity-verdict .s-desc { font-size: 0.88rem; color: #ccc; line-height: 1.5; flex: 1; }
+
+    .section-divider { border: none; border-top: 1px solid #e0e0e0; margin: 2.5rem 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="site-title">Curious Onlooker</a>
+      <button class="menu-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav>
+        <ul>
+          <li><a href="index.html">About</a></li>
+          <li><a href="podcasts.html">Podcasts</a></li>
+          <li><a href="market-notes.html" class="active">Market Notes</a></li>
+          <li><a href="reading.html">Reading</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="article-nav">
+      <a href="market-notes.html">&larr; Back to Market Notes</a>
+    </div>
+
+    <article class="long-post">
+      <p class="post-date">25 March 2026</p>
+      <h1>Meta Child Safety Litigation: Legal Timetable, Damage Scale &amp; Equity Impact</h1>
+      <p class="article-subtitle">The New Mexico verdict is the first jury finding against Meta for knowingly harming children. The dollar amount is modest. The precedent is not.</p>
+
+      <p>I&rsquo;ve been following this case quietly for a while. The New Mexico verdict doesn&rsquo;t move the needle on Meta&rsquo;s earnings &mdash; not directly, not yet. But it changes the legal landscape in a way that I think deserves a closer look. This is the first time a jury in America has sat down and said, on the record: Meta knowingly harmed children, disregarded internal warnings, and misled the public. Everything else in this litigation flows from that finding.</p>
+      <p>What follows is a structured breakdown of the four active legal tracks, the damage scale, the redress mechanisms, and what I think it means for equity holders.</p>
+
+      <div class="situation-snapshot">
+        <div>
+          <div class="snapshot-label">First Verdict</div>
+          <div class="snapshot-value">$375M &mdash; New Mexico</div>
+        </div>
+        <div>
+          <div class="snapshot-label">Verdict Date</div>
+          <div class="snapshot-value">24 March 2026</div>
+        </div>
+        <div>
+          <div class="snapshot-label">Active Legal Tracks</div>
+          <div class="snapshot-value">4 simultaneous</div>
+        </div>
+        <div>
+          <div class="snapshot-label">Meta&rsquo;s ~Total Exposure</div>
+          <div class="snapshot-value">$10&ndash;25B (est.)</div>
+        </div>
+        <div>
+          <div class="snapshot-label">Meta FY2024 FCF</div>
+          <div class="snapshot-value">~$62B</div>
+        </div>
+        <div>
+          <div class="snapshot-label">Next Catalyst</div>
+          <div class="snapshot-value">NM Phase 2, 4 May 2026</div>
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <h2>I. The New Mexico Verdict in Context</h2>
+      <p>The jury verdict of <strong>$375 million</strong> &mdash; not $400M; the pre-trial upper estimate was $2B+ &mdash; is the first jury verdict against Meta over child harm. The penalty was calculated at $5,000 per violation under New Mexico&rsquo;s Unfair Practices Act, a statutory cap that made the dollar amount somewhat modest relative to Meta&rsquo;s scale.</p>
+      <p>More important than the dollar amount is what it signals: the first jury in America has now affirmatively found that Meta <em>knowingly</em> harmed children, disregarded internal warnings, and misled the public. That finding is not an abstraction. It is the predicate for every future case, every future plaintiff attorney, and every settlement negotiation to come.</p>
+
+      <hr class="section-divider">
+
+      <h2>II. Legal Timetable &amp; Consolidation Landscape</h2>
+      <p>The litigation against Meta over child safety is a multi-track, multi-year fight spanning at least four distinct legal arenas. It is worth understanding each one separately because they move at different speeds and carry different types of risk.</p>
+
+      <table class="legal-table">
+        <thead>
+          <tr>
+            <th>Track</th>
+            <th>Status</th>
+            <th>Key Dates</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>NM Phase 1 (jury trial)</strong></td>
+            <td><span class="status-verdict">Verdict: $375M</span></td>
+            <td>24 March 2026; appeal pending</td>
+          </tr>
+          <tr>
+            <td><strong>NM Phase 2 (nuisance/injunction)</strong></td>
+            <td><span class="status-pending">Bench trial</span></td>
+            <td>Begins 4 May 2026</td>
+          </tr>
+          <tr>
+            <td><strong>CA state court &mdash; KGM (JCCP 5255)</strong></td>
+            <td><span class="status-pending">Jury deliberating</span></td>
+            <td>Verdict imminent, Q1 2026</td>
+          </tr>
+          <tr>
+            <td><strong>Federal MDL 3047 (N.D. California)</strong></td>
+            <td><span class="status-ongoing">Bellwether trials</span></td>
+            <td>Rolling 2026&ndash;2028</td>
+          </tr>
+          <tr>
+            <td><strong>State AG coalition (~41 remaining)</strong></td>
+            <td><span class="status-ongoing">Discovery / negotiation</span></td>
+            <td>Likely settlements 2026&ndash;2027</td>
+          </tr>
+          <tr>
+            <td><strong>School district suits (500+)</strong></td>
+            <td><span class="status-ongoing">Discovery in MDL</span></td>
+            <td>Trials 2027&ndash;2028</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Federal MDL 3047</strong> is the largest track. As of March 2026, there are approximately 2,407 pending individual cases (up from 1,246 in February 2025 and accelerating rapidly), covering personal injury claims by children and families alleging addiction, depression, eating disorders, anxiety, and self-harm. TikTok and Snap settled before the KGM trial; Meta and YouTube are still exposed.</p>
+
+      <p><strong>New Mexico Phase 2</strong> is arguably the more consequential proceeding for Meta&rsquo;s operating model. It is a public nuisance bench trial before the judge alone, seeking structural injunctive relief: mandatory age verification, algorithmic changes, new minor protection features, and possibly supervised compliance. This is not about money. It is about how Meta must operate.</p>
+
+      <p>Meta has announced it will appeal the New Mexico verdict. Appeals in New Mexico typically take 18&ndash;36 months at the Court of Appeals, with possible certiorari to the New Mexico Supreme Court thereafter. Appeals are unlikely to delay the Phase 2 bench trial or other tracks.</p>
+
+      <hr class="section-divider">
+
+      <h2>III. Eventual Scale of Damages &mdash; Aggregate Exposure</h2>
+      <p>No single published analyst estimate has precisely quantified total exposure, but the components can be reasonably structured. My central estimate for Meta&rsquo;s share, across all tracks over a ~5-year resolution horizon, is <strong>$10&ndash;25 billion</strong> in total cash and non-cash obligations.</p>
+
+      <div class="exposure-grid">
+        <div class="exposure-card">
+          <div class="track-label">State AG Cases (~42 states)</div>
+          <div class="track-amount">$5&ndash;15B</div>
+          <div class="track-note">Using New Mexico ($375M) as a yardstick. A 42-state sweep at negotiated discounts. A global settlement almost always comes at a significant discount to trial exposure.</div>
+        </div>
+        <div class="exposure-card">
+          <div class="track-label">Federal MDL 3047 (~2,400+ cases)</div>
+          <div class="track-amount">$5&ndash;20B</div>
+          <div class="track-note">Individual personal injury ranges of $1&ndash;5M per serious case have been floated. Meta likely bears 50&ndash;70% of any global settlement shared with YouTube/Snap/TikTok.</div>
+        </div>
+        <div class="exposure-card">
+          <div class="track-label">Total Meta Share (all tracks)</div>
+          <div class="track-amount">$10&ndash;25B</div>
+          <div class="track-note">Over ~5 years. Bull case for plaintiffs: north of $30B. Bear case: negotiated global settlement closer to $5&ndash;8B. Against Meta&rsquo;s ~$62B annual FCF, even the high end is ~0.4&ndash;0.5 turns.</div>
+        </div>
+      </div>
+
+      <p>School district settlements would likely run in the hundreds of millions to low billions, probably structured as remediation funds rather than cash payouts.</p>
+
+      <hr class="section-divider">
+
+      <h2>IV. Key Redress Mechanisms</h2>
+      <p>The litigation is pursuing several distinct forms of relief, and it matters to understand which ones are financially painful versus operationally disruptive.</p>
+
+      <p><strong>Monetary civil penalties</strong> (the New Mexico Phase 1 model) are calibrated to state consumer protection statutes &mdash; per-violation statutory fines, generally capped at $5,000&ndash;$10,000 per violation. The math is heavily dependent on how broadly courts define a &ldquo;violation.&rdquo;</p>
+
+      <p><strong>Compensatory and punitive damages</strong> in personal injury suits (MDL 3047) are uncapped in most jurisdictions. If juries award punitive damages &mdash; which requires proof of malice or reckless disregard &mdash; the exposure multiplies substantially. The KGM trial in California will be the first read on whether juries will extend punitive awards.</p>
+
+      <p><strong>Structural injunctive relief</strong> is sought in New Mexico Phase 2 and would be the most operationally significant outcome. Court-mandated changes could include: mandatory age verification, default-off algorithmic amplification for minors, restrictions on direct messaging between adults and minors, prohibition on addictive design features (infinite scroll, engagement hooks), and third-party compliance monitoring. <strong>This is the single largest long-term business risk</strong> &mdash; it could meaningfully reduce engagement metrics and advertising revenue from the under-18 cohort.</p>
+
+      <p><strong>Legislative amplification</strong> is a secondary but real mechanism. Verdicts like New Mexico&rsquo;s typically accelerate Congressional and state legislative action. California&rsquo;s AB-56 (health warnings for minors, effective 1 January 2027) is one early example. Federal legislation forcing age verification or algorithmic transparency remains politically viable in a bipartisan child safety context.</p>
+
+      <hr class="section-divider">
+
+      <h2>V. Impact on Meta&rsquo;s Equity Value</h2>
+      <p>The immediate market reaction has been modest: META shares traded down approximately 2% in the session following the verdict announcement, a reaction consistent with markets having partially priced in the legal risk. My read on why &mdash; and where I think the unpriced risk actually sits.</p>
+
+      <p><strong>Why the reaction is muted (and probably right for now):</strong> The $375M verdict is less than 0.03% of Meta&rsquo;s ~$1.5 trillion market cap and represents less than one week of Meta&rsquo;s earnings. At Meta&rsquo;s current earnings power (~$70B+ annual revenue, ~$50B net income), even a $20B total settlement over 5 years is approximately 4&ndash;5% of anticipated cumulative earnings &mdash; economically manageable as an expense.</p>
+
+      <p><strong>Where the real risk sits:</strong> The more serious equity risk is not the cash fines &mdash; it is structural product changes. Under-18 users represent a minority of Meta&rsquo;s monetised DAU base but are disproportionately important as the pipeline of future adult users. If courts mandate algorithmic guardrails, age verification, or feature restrictions, the downstream impact on Instagram&rsquo;s growth trajectory and Reels engagement could be material over a 3&ndash;5 year horizon.</p>
+
+      <p><strong>Precedent matters more than dollars.</strong> The most significant equity implication of the New Mexico verdict is its status as the first jury finding of liability. This eliminates the &ldquo;no precedent&rdquo; defence in every future case, increases plaintiff attorney willingness to take contingency matters, and &mdash; critically &mdash; raises the probability and price of a global settlement. A negotiated resolution, while expensive, would actually be equity-positive relative to continued trial-by-trial attrition, as it removes ongoing uncertainty.</p>
+
+      <div class="equity-verdict">
+        <h3>Equity Scenario Framework</h3>
+        <div class="scenario-row">
+          <div class="s-label base">Base Case</div>
+          <div class="s-desc">Global MDL settlement, moderate injunctive requirements, appeal reduces NM award. Litigation drag likely <strong>3&ndash;6% on NPV of future earnings</strong> &mdash; already largely reflected in current valuations given the long-running nature of the cases.</div>
+        </div>
+        <div class="scenario-row">
+          <div class="s-label tail">Tail Risk</div>
+          <div class="s-desc">Multiple adverse jury verdicts with punitive damages, strong injunctive relief in Phase 2, federal legislation layered on top. Equity impact could reach <strong>10&ndash;15% of market cap</strong> (~$150&ndash;225B in erosion). Would likely unfold over several years, not a single event.</div>
+        </div>
+        <div class="scenario-row">
+          <div class="s-label watch">Key Catalysts to Watch</div>
+          <div class="s-desc"><strong>New Mexico Phase 2 (4 May 2026)</strong> &mdash; sets the injunctive relief template. <strong>KGM verdict in California (imminent)</strong> &mdash; first read on punitive damages. These two events are the near-term tests most likely to move the needle on equity valuation.</div>
+        </div>
+      </div>
+
+      <p>The litigation complex is a meaningful but manageable drag on Meta&rsquo;s equity value at current scales, with aggregate cash exposure likely priced in for large settlement scenarios. The unpriced tail risk lies in structural operational restrictions rather than financial penalties. A negotiated global settlement, if it comes, would likely be received as equity-positive &mdash; it trades a known cost for certainty.</p>
+
+      <div class="disclaimer">
+        <p><strong>Disclaimer:</strong> This analysis is based on publicly available information including published court records, media reporting, and analyst commentary as of 25 March 2026. It is produced for informational and educational purposes only and does not constitute a financial recommendation or a solicitation to buy or sell any security. The author may hold positions in securities mentioned. All investments involve risk, including loss of principal. Past performance is not indicative of future results.</p>
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Curious Onlooker. All rights reserved. &nbsp;&middot;&nbsp; Last updated: 25 March 2026 &nbsp;&middot;&nbsp; <a href="mailto:huanggongwu@gmail.com">Contact</a></p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

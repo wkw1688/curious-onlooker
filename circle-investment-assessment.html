@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circle Internet Group (CRCL) &mdash; Curious Onlooker</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root {
+      --navy: #0f1f3d;
+      --navy-light: #1a3460;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --cred: #c0392b;
+      --camber: #d35400;
+      --cgreen: #1a7a4a;
+      --cmuted: #6c757d;
+      --card-bg: #f0f3f8;
+    }
+    .crcl { max-width: 900px; margin: 0 auto; padding: 0 1.5rem 80px; font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.75; }
+
+    /* ARTICLE HEADER BAR */
+    .crcl .header-bar { border-top: 4px solid var(--navy); border-bottom: 1px solid var(--border); padding: 20px 0 16px; margin-bottom: 36px; }
+    .crcl .clabel-sm { font-family: 'Arial', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); }
+    .crcl h1 { font-size: 30px; font-weight: 700; color: var(--navy); line-height: 1.25; margin: 10px 0 8px; font-family: Georgia, serif; }
+    .crcl .subtitle { font-family: 'Arial', sans-serif; font-size: 14px; color: var(--cmuted); margin-top: 4px; }
+    .crcl .ameta { font-family: 'Arial', sans-serif; font-size: 12px; color: var(--cmuted); margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); }
+
+    /* VERDICT BANNER */
+    .crcl .verdict-banner { background: var(--navy); color: #fff; border-radius: 6px; padding: 20px 28px; margin: 28px 0; display: flex; align-items: center; gap: 20px; }
+    .crcl .verdict-badge { font-size: 32px; flex-shrink: 0; }
+    .crcl .verdict-text { font-family: 'Arial', sans-serif; }
+    .crcl .vtitle { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 4px; }
+    .crcl .vrating { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .crcl .vsub { font-size: 13px; color: #aab4c8; line-height: 1.4; }
+
+    /* PRICE CHIPS */
+    .crcl .price-chips { display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 0 28px; }
+    .crcl .chip { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 12px 18px; font-family: 'Arial', sans-serif; flex: 1; min-width: 120px; }
+    .crcl .chip .clabel { font-size: 11px; color: var(--cmuted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    .crcl .chip .cvalue { font-size: 22px; font-weight: 700; color: var(--navy); margin-top: 2px; }
+    .crcl .chip .csub { font-size: 11px; color: var(--cmuted); margin-top: 1px; }
+    .crcl .chip.red .cvalue { color: var(--cred); }
+    .crcl .chip.green .cvalue { color: var(--cgreen); }
+    .crcl .chip.amber .cvalue { color: var(--camber); }
+
+    /* HEADINGS */
+    .crcl h2 { font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); border-bottom: 2px solid var(--gold); padding-bottom: 6px; margin: 44px 0 18px; }
+    .crcl h3 { font-family: Georgia, serif; font-size: 19px; font-weight: 700; color: var(--navy); margin: 28px 0 10px; }
+    .crcl p { margin-bottom: 16px; }
+
+    /* TABLES */
+    .crcl table { width: 100%; border-collapse: collapse; margin: 20px 0 24px; font-family: 'Arial', sans-serif; font-size: 13.5px; }
+    .crcl th { background: var(--navy); color: #fff; text-align: left; padding: 10px 14px; font-weight: 600; font-size: 12px; letter-spacing: 0.5px; }
+    .crcl td { padding: 9px 14px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: middle; }
+    .crcl tr:nth-child(even) td { background: var(--card-bg); }
+    .crcl .td-right { text-align: right; font-variant-numeric: tabular-nums; }
+    .crcl .td-center { text-align: center; }
+    .crcl .bold-row td { font-weight: 700; background: #e0e8f5 !important; }
+    .crcl .scenario-bear td { color: var(--cred); }
+    .crcl .scenario-base td { color: var(--navy); font-weight: 600; }
+    .crcl .scenario-bull td { color: var(--cgreen); }
+
+    /* CHARTS */
+    .crcl .chart-container { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 24px; margin: 20px 0 28px; }
+    .crcl .chart-title { font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* CALLOUT BOXES */
+    .crcl .callout { border-left: 4px solid var(--gold); background: #fff; padding: 16px 20px; margin: 20px 0; border-radius: 0 6px 6px 0; font-size: 15.5px; }
+    .crcl .callout.red { border-color: var(--cred); background: #fdf5f4; }
+    .crcl .callout.green { border-color: var(--cgreen); background: #f3fbf6; }
+    .crcl .callout.amber { border-color: var(--camber); background: #fdf7f0; }
+    .crcl .callout strong { color: var(--navy); }
+
+    /* RISK BADGES */
+    .crcl .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 11px; font-weight: 700; font-family: 'Arial', sans-serif; letter-spacing: 0.5px; vertical-align: middle; margin-right: 4px; }
+    .crcl .badge.red { background: #fde8e6; color: var(--cred); }
+    .crcl .badge.amber { background: #fdf0e0; color: var(--camber); }
+    .crcl .badge.green { background: #e8f8ee; color: var(--cgreen); }
+
+    /* INVERSION GRID */
+    .crcl .killer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0 24px; }
+    .crcl .killer-card { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; font-family: 'Arial', sans-serif; font-size: 13px; }
+    .crcl .killer-card.red { border-left: 4px solid var(--cred); }
+    .crcl .killer-card.amber { border-left: 4px solid var(--camber); }
+    .crcl .killer-card.green { border-left: 4px solid var(--cgreen); }
+    .crcl .killer-title { font-weight: 700; color: var(--navy); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .crcl .killer-body { color: #444; line-height: 1.45; }
+
+    /* ARTICLE DISCLAIMER */
+    .crcl .afooter { border-top: 1px solid var(--border); padding-top: 24px; margin-top: 40px; font-family: 'Arial', sans-serif; font-size: 12px; color: var(--cmuted); line-height: 1.6; }
+
+    /* RESPONSIVE */
+    @media (max-width: 620px) {
+      .crcl { font-size: 16px; padding: 0 1rem 60px; }
+      .crcl h1 { font-size: 24px; }
+      .crcl .killer-grid { grid-template-columns: 1fr; }
+      .crcl .price-chips { flex-direction: column; }
+      .crcl .verdict-banner { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="site-title">Curious Onlooker</a>
+      <button class="menu-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav>
+        <ul>
+          <li><a href="index.html">About</a></li>
+          <li><a href="podcasts.html">Podcasts</a></li>
+          <li><a href="market-notes.html" class="active">Market Notes</a></li>
+          <li><a href="reading.html">Reading</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="article-nav">
+      <a href="market-notes.html">&larr; Back to Market Notes</a>
+    </div>
+
+    <div class="crcl">
+
+      <!-- HEADER -->
+      <div class="header-bar">
+        <div class="clabel-sm">Equity Analysis &nbsp;&middot;&nbsp; Curious Onlooker</div>
+        <h1>Circle Internet Group (CRCL):<br>Infrastructure Play or Treasury Yield Proxy?</h1>
+        <p class="subtitle">A Post-Selloff Investment Assessment &mdash; Applying the Inversion, Conviction, and Equity Analysis Frameworks</p>
+        <div class="ameta">
+          25 March 2026 &nbsp;&middot;&nbsp; Analyst: Wong &nbsp;&middot;&nbsp; Source materials: Circle S-1 filings, Thejaswini M A / Token Dispatch (Mar 2026), CRCL/COIN revenue-share verification, live market data
+        </div>
+      </div>
+
+      <!-- VERDICT BANNER -->
+      <div class="verdict-banner">
+        <div class="verdict-badge">&#127939;</div>
+        <div class="verdict-text">
+          <div class="vtitle">Investment Verdict</div>
+          <div class="vrating">HOLD (existing) / AVOID (new money)</div>
+          <div class="vsub">The 20% selloff has repriced from overvalued optimism to consensus fair value &mdash; not a buying opportunity. Bear-case downside of 66% vs. upside of 30% creates an unfavourable risk/reward until the CLARITY Act and Coinbase renegotiation are resolved.</div>
+        </div>
+      </div>
+
+      <!-- KEY METRICS CHIPS -->
+      <div class="price-chips">
+        <div class="chip red">
+          <div class="clabel">Current Price</div>
+          <div class="cvalue">$101.17</div>
+          <div class="csub">Close 24 Mar 2026 &darr;20%</div>
+        </div>
+        <div class="chip">
+          <div class="clabel">52-Wk Peak</div>
+          <div class="cvalue">$123.00</div>
+          <div class="csub">Reached 18 Mar 2026</div>
+        </div>
+        <div class="chip">
+          <div class="clabel">Market Cap</div>
+          <div class="cvalue">$25.0B</div>
+          <div class="csub">246.8M shares</div>
+        </div>
+        <div class="chip">
+          <div class="clabel">Enterprise Value</div>
+          <div class="cvalue">$23.8B</div>
+          <div class="csub">Net cash $1.16B</div>
+        </div>
+        <div class="chip">
+          <div class="clabel">FY2025 Revenue</div>
+          <div class="cvalue">~$2.5B</div>
+          <div class="csub">Q4 run-rate ~$3.0B ann.</div>
+        </div>
+      </div>
+
+      <!-- SECTION I -->
+      <h2>I &mdash; Executive Summary &amp; Investment Thesis</h2>
+
+      <p>Circle Internet Group is one of those companies that is simultaneously easy to understand and deeply difficult to value. The business model, once stripped of its infrastructure narrative, is a money market fund that issues a stablecoin: every USDC in circulation is backed by a dollar in short-term US Treasuries, and the interest on those Treasuries &mdash; at current $79 billion in supply &mdash; generates approximately $3 billion in annualised gross revenue. That is the entire engine. The market, however, is currently paying $25 billion for that engine, which requires it to believe Circle can compound revenue at nearly 40% annually for five years. That is an achievable number given USDC&rsquo;s structural momentum. But it is also a number that leaves zero margin for error &mdash; and on 24 March 2026, error arrived in the form of a Senate draft that proposes to ban the very yield-distribution mechanics that have driven USDC adoption.</p>
+
+      <p>The 20% single-day selloff was sharp but not deep enough. A reverse DCF on the current price of $101.17 reveals the market has simply repriced from &ldquo;pricing in optimism&rdquo; (45.5% implied CAGR at $123) to &ldquo;pricing in consensus&rdquo; (39.3% implied CAGR at $101). That is not a margin of safety &mdash; it is a recalibration. The bear case, in which the CLARITY Act passes in its current form and rate cuts materialise in 2026, produces an intrinsic value of approximately $34 per share &mdash; 66% below today&rsquo;s price. Until that legislative risk is resolved or the stock reprices further toward the bear scenario, the risk/reward does not support new investment. For existing holders, the long-term infrastructure thesis remains intact and the position merits monitoring rather than exit.</p>
+
+      <h3>1.1 Thesis Snapshot</h3>
+      <p>Circle sits at the intersection of two distinct investment stories that are simultaneously compelling and contradictory. As a rates trade, it is a leveraged bet on the federal funds rate staying elevated, with each 25 basis point cut costing approximately $50 million in annualised revenue. As an infrastructure story, it is the settlement layer for a rapidly growing category of tokenised commerce, with USDC already processing more transaction volume than Tether despite being 2.3x smaller by supply. The market is currently paying for the infrastructure story at infrastructure multiples &mdash; but the P&amp;L is still primarily a rates story. That tension is the investment case in one sentence.</p>
+
+      <h3>1.2 Key Financial Metrics</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th class="td-right">FY2024A</th>
+            <th class="td-right">FY2025E</th>
+            <th class="td-right">FY2026E (run-rate)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Gross Revenue</td><td class="td-right">$1.60B</td><td class="td-right">~$2.50B</td><td class="td-right">~$3.0&ndash;3.2B</td></tr>
+          <tr><td>Revenue Growth YoY</td><td class="td-right">&mdash;</td><td class="td-right">~56%</td><td class="td-right">~20&ndash;28%</td></tr>
+          <tr><td>Distribution Costs (Coinbase)</td><td class="td-right">$0.91B (56%)</td><td class="td-right">~$1.4B+</td><td class="td-right">Rising</td></tr>
+          <tr><td>Net USDC Revenue (after distrib.)</td><td class="td-right">$0.77B</td><td class="td-right">~$1.1B</td><td class="td-right">~$1.3B</td></tr>
+          <tr><td>Adj. EBITDA Margin (Q3 2025)</td><td class="td-right">&mdash;</td><td class="td-right">~22% (Q3 data)</td><td class="td-right">TBD</td></tr>
+          <tr><td>Net Income / (Loss)</td><td class="td-right">&mdash;</td><td class="td-right">&ndash;$70M (inc. $424M SBC)</td><td class="td-right">Adj. +$354M</td></tr>
+          <tr><td>Corporate Cash (non-reserve)</td><td class="td-right">&mdash;</td><td class="td-right">$1.20B+</td><td class="td-right">Strong</td></tr>
+          <tr><td>Total Debt</td><td class="td-right">&mdash;</td><td class="td-right">$36.8M</td><td class="td-right">Minimal</td></tr>
+          <tr><td>USDC Supply (end-period)</td><td class="td-right">$44B</td><td class="td-right">~$75&ndash;79B</td><td class="td-right">ATH $79B</td></tr>
+          <tr><td>EV / Revenue (current)</td><td class="td-right">&mdash;</td><td class="td-right">9.5x (FY2025E)</td><td class="td-right">7.9x (run-rate)</td></tr>
+          <tr><td>Analyst Avg. Price Target</td><td class="td-right" colspan="3">$131.69 (16 analysts, range $50&ndash;$280)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>1.3 Macro &amp; Sector Context</h3>
+      <p>The macro backdrop has been the single most important driver of CRCL&rsquo;s extraordinary post-IPO performance. Circle listed at approximately $50 on 5 February 2025 and reached $123 just six weeks later &mdash; a 150% move powered by two distinct catalysts. First, Q4 2025 earnings delivered a massive earnings beat: EPS of $0.43 versus consensus of $0.16, with revenue of $770 million against expectations of $749 million. Second, and more durably, the Iran conflict in late February pushed oil prices up approximately 35%, reigniting inflation concerns that effectively eliminated the market&rsquo;s expectation of two Fed rate cuts in 2026. Since Circle earns interest income on $79 billion of US Treasuries backing USDC reserves, every basis point the Fed does not cut is a basis point of revenue preserved. Higher-for-longer is, paradoxically, the best macro environment for a stablecoin issuer.</p>
+
+      <p>The regulatory backdrop has now reversed that tailwind in one day. The CLARITY Act draft, reportedly introduced in the Senate on 24 March 2026, proposes a blanket ban on stablecoin yield payments &mdash; including structures &ldquo;economically equivalent to interest.&rdquo; This directly targets Coinbase&rsquo;s 3.5% yield product on USDC, the primary mechanism that has accelerated USDC adoption on Coinbase&rsquo;s platform and underpins Circle&rsquo;s revenue-sharing economics. The legislation remains unverified in full text, and regulatory proposals in the US crypto space have historically been watered down or delayed. But the structural threat is real enough that the market has immediately moved to reprice it.</p>
+
+      <h3>1.4 Valuation Summary</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th class="td-center">5yr Rev. CAGR</th>
+            <th class="td-center">Terminal Growth</th>
+            <th class="td-center">FCF Margin</th>
+            <th class="td-center">WACC</th>
+            <th class="td-right">Equity Value/Share</th>
+            <th class="td-right">vs. $101.17</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="scenario-bear">
+            <td>&#128308; Bear &mdash; Yield ban + slowdown</td>
+            <td class="td-center">12%</td><td class="td-center">0%</td><td class="td-center">18%</td><td class="td-center">12%</td>
+            <td class="td-right"><strong>$33.88</strong></td><td class="td-right">&ndash;66%</td>
+          </tr>
+          <tr class="scenario-base">
+            <td>&#127939; Base &mdash; Infra thesis, consensus</td>
+            <td class="td-center">40%</td><td class="td-center">3%</td><td class="td-center">18%</td><td class="td-center">12%</td>
+            <td class="td-right"><strong>$103.57</strong></td><td class="td-right">+2%</td>
+          </tr>
+          <tr class="scenario-bull">
+            <td>&#128994; Bull &mdash; Full infrastructure re-rate</td>
+            <td class="td-center">55%</td><td class="td-center">4%</td><td class="td-center">18%</td><td class="td-center">12%</td>
+            <td class="td-right"><strong>$181.27</strong></td><td class="td-right">+79%</td>
+          </tr>
+          <tr class="bold-row">
+            <td>&#128205; Current price implies</td>
+            <td class="td-center"><strong>39.3%</strong></td><td class="td-center">3%</td><td class="td-center">18%</td><td class="td-center">12%</td>
+            <td class="td-right"><strong>$101.17</strong></td><td class="td-right">&mdash;</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- SCENARIO CHART -->
+      <div class="chart-container">
+        <div class="chart-title">Scenario Valuation vs. Current Price ($101.17)</div>
+        <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:700px;">
+          <text x="38" y="222" font-size="11" fill="#888" font-family="Arial" text-anchor="end">$0</text>
+          <text x="38" y="172" font-size="11" fill="#888" font-family="Arial" text-anchor="end">$50</text>
+          <text x="38" y="122" font-size="11" fill="#888" font-family="Arial" text-anchor="end">$100</text>
+          <text x="38" y="72" font-size="11" fill="#888" font-family="Arial" text-anchor="end">$150</text>
+          <text x="38" y="22" font-size="11" fill="#888" font-family="Arial" text-anchor="end">$200</text>
+          <line x1="44" y1="220" x2="680" y2="220" stroke="#dde1e7" stroke-width="1"/>
+          <line x1="44" y1="170" x2="680" y2="170" stroke="#dde1e7" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="44" y1="120" x2="680" y2="120" stroke="#dde1e7" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="44" y1="70" x2="680" y2="70" stroke="#dde1e7" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="44" y1="20" x2="680" y2="20" stroke="#dde1e7" stroke-width="1" stroke-dasharray="3,3"/>
+          <rect x="100" y="186" width="80" height="34" fill="#c0392b" rx="3"/>
+          <text x="140" y="180" font-size="12" fill="#c0392b" font-family="Arial" font-weight="bold" text-anchor="middle">$33.88</text>
+          <text x="140" y="235" font-size="11" fill="#555" font-family="Arial" text-anchor="middle">Bear Case</text>
+          <text x="140" y="247" font-size="10" fill="#888" font-family="Arial" text-anchor="middle">&ndash;66%</text>
+          <rect x="240" y="116" width="80" height="104" fill="#1a3460" rx="3"/>
+          <text x="280" y="110" font-size="12" fill="#1a3460" font-family="Arial" font-weight="bold" text-anchor="middle">$103.57</text>
+          <text x="280" y="235" font-size="11" fill="#555" font-family="Arial" text-anchor="middle">Base Case</text>
+          <text x="280" y="247" font-size="10" fill="#888" font-family="Arial" text-anchor="middle">+2%</text>
+          <rect x="380" y="88" width="80" height="132" fill="#8b9dc3" rx="3"/>
+          <text x="420" y="82" font-size="12" fill="#4a5a8a" font-family="Arial" font-weight="bold" text-anchor="middle">$131.69</text>
+          <text x="420" y="235" font-size="11" fill="#555" font-family="Arial" text-anchor="middle">Analyst Avg.</text>
+          <text x="420" y="247" font-size="10" fill="#888" font-family="Arial" text-anchor="middle">+30%</text>
+          <rect x="520" y="39" width="80" height="181" fill="#1a7a4a" rx="3"/>
+          <text x="560" y="33" font-size="12" fill="#1a7a4a" font-family="Arial" font-weight="bold" text-anchor="middle">$181.27</text>
+          <text x="560" y="235" font-size="11" fill="#555" font-family="Arial" text-anchor="middle">Bull Case</text>
+          <text x="560" y="247" font-size="10" fill="#888" font-family="Arial" text-anchor="middle">+79%</text>
+          <line x1="60" y1="119" x2="680" y2="119" stroke="#d35400" stroke-width="2" stroke-dasharray="6,3"/>
+          <text x="670" y="115" font-size="11" fill="#d35400" font-family="Arial" font-weight="bold" text-anchor="end">Current $101</text>
+        </svg>
+      </div>
+
+      <!-- SECTION II -->
+      <h2>II &mdash; Business Model Analysis</h2>
+
+      <h3>2.1 The Money Market Fund in Stablecoin Clothing</h3>
+      <p>Strip away the fintech narrative and Circle&rsquo;s economics reduce to a single, elegant formula: USDC supply &times; short-term Treasury yield = gross revenue. Every USDC in circulation is backed one-for-one by a dollar held in short-duration US government securities and cash equivalents. At the current $79 billion in USDC supply and an effective reserve yield of approximately 4.25%, Circle&rsquo;s gross interest income runs at approximately $3.36 billion annually. This is not a product business, a subscription business, or a software business. It is a spread business &mdash; and the spread is the federal funds rate minus Circle&rsquo;s cost structure, of which the dominant component is the distribution payment to Coinbase.</p>
+
+      <p>The implication is that Circle&rsquo;s revenue has essentially one macro input: the federal funds rate. When rates are elevated, each additional billion dollars of USDC supply generates approximately $42.5 million in annualised gross revenue. When rates fall, that figure compresses proportionally. Each 25 basis point cut costs Circle approximately $50 million in annualised top-line revenue at current supply levels. This rate sensitivity is not a nuance &mdash; it is the entire risk/return profile of the business as currently structured.</p>
+
+      <h3>2.2 The Coinbase Trap: The 56-Cent Problem</h3>
+      <p>Circle&rsquo;s gross revenue figures are deeply misleading without understanding the revenue-sharing arrangement with Coinbase, which is the most important and most underappreciated structural feature of the business. When USDC was launched in 2018, Circle and Coinbase formed a joint consortium to govern it. The consortium dissolved in 2023 with Circle taking full control of issuance, but Coinbase retained an extraordinarily generous revenue share that has only grown more burdensome as USDC supply has expanded on Coinbase&rsquo;s platform.</p>
+
+      <p>The mechanics are asymmetric by design. Coinbase receives 100% of the reserve income from USDC held directly on its platform. For USDC held off-platform, Circle and Coinbase split the reserve income 50/50. In 2024, this arrangement transferred $908 million of Circle&rsquo;s $1.6 billion in gross revenue directly to Coinbase &mdash; approximately 56 cents of every dollar Circle earned. Coinbase&rsquo;s share of total USDC supply has meanwhile grown from 5% in 2022 to approximately 22% by early 2025, creating a self-reinforcing dynamic: the more USDC adopts on Coinbase&rsquo;s platform, the higher the portion of revenue that flows to Coinbase rather than Circle.</p>
+
+      <!-- REVENUE WATERFALL CHART -->
+      <div class="chart-container">
+        <div class="chart-title">USDC Revenue Waterfall &mdash; Where the $3B Goes (Annualised FY2026E)</div>
+        <svg viewBox="0 0 660 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:660px;">
+          <text x="10" y="30" font-size="12" fill="#555" font-family="Arial">Gross Reserve Income</text>
+          <rect x="10" y="38" width="640" height="26" fill="#c8d8f0" rx="3"/>
+          <text x="325" y="55" font-size="12" fill="#1a3460" font-family="Arial" font-weight="bold" text-anchor="middle">$3.0B (100%)</text>
+          <text x="10" y="85" font-size="12" fill="#555" font-family="Arial">After Coinbase Distribution (&ndash;56%)</text>
+          <rect x="10" y="93" width="281" height="26" fill="#1a7a4a" rx="3"/>
+          <text x="145" y="110" font-size="12" fill="white" font-family="Arial" font-weight="bold" text-anchor="middle">Circle Retains $1.32B</text>
+          <rect x="295" y="93" width="355" height="26" fill="#c0392b" rx="3" opacity="0.75"/>
+          <text x="472" y="110" font-size="12" fill="white" font-family="Arial" font-weight="bold" text-anchor="middle">Coinbase Gets $1.68B</text>
+          <text x="10" y="140" font-size="12" fill="#555" font-family="Arial">After Operating Expenses (est. ~$600M)</text>
+          <rect x="10" y="148" width="144" height="26" fill="#1a3460" rx="3"/>
+          <text x="77" y="165" font-size="11" fill="white" font-family="Arial" font-weight="bold" text-anchor="middle">FCF ~$720M</text>
+          <rect x="158" y="148" width="123" height="26" fill="#8b9dc3" rx="3" opacity="0.75"/>
+          <text x="220" y="165" font-size="11" fill="white" font-family="Arial" text-anchor="middle">Opex ~$600M</text>
+          <rect x="295" y="148" width="355" height="26" fill="#c0392b" rx="3" opacity="0.5"/>
+          <text x="472" y="165" font-size="11" fill="#8b0000" font-family="Arial" text-anchor="middle">Coinbase $1.68B (gone)</text>
+        </svg>
+      </div>
+
+      <p>The arrangement expires in August 2026 with automatic renewal unless mutually terminated or deemed illegal &mdash; and Coinbase holds veto rights over any new USDC-related partnerships, giving it substantial leverage at the upcoming renegotiation. This is the single most critical fundamental event for Circle shareholders over the next twelve months. A renegotiation that modestly improves Circle&rsquo;s economics &mdash; reducing Coinbase&rsquo;s take from 56% to, say, 40% &mdash; could add several hundred million dollars to Circle&rsquo;s annual net revenue and represent a more meaningful re-rating catalyst than any macro development.</p>
+
+      <h3>2.3 Margin Structure and the Capital Intensity Paradox</h3>
+      <p>Circle&rsquo;s gross margin of 30&ndash;39% is strikingly low for a company categorised as fintech infrastructure. The comparison to Visa (80%+ gross margins) or even to payment processors in the 50&ndash;60% range reveals the structural cost problem. Circle does not process transactions for a fee &mdash; it earns the float on reserve assets and distributes the majority of that float to its largest distribution partner before any operating expenses are incurred.</p>
+
+      <p>The trajectory of distribution costs is alarming. In Q4 2025, distribution costs alone reached $461 million &mdash; a 52% increase year-over-year, faster than the 77% growth in gross revenue. If this trend continues (and it will, as long as Coinbase&rsquo;s share of USDC supply keeps growing), Circle&rsquo;s net revenue margin will continue compressing even in a growing USDC supply environment.</p>
+
+      <!-- SECTION III -->
+      <h2>III &mdash; Strategic Trajectory &amp; Competitive Moat</h2>
+
+      <h3>3.1 The Genuine Infrastructure Thesis</h3>
+      <p>The bear case on Circle is compelling, but the long-term bull case is not without substance. USDC has achieved something Tether has not: it is winning the transaction velocity race. In February 2026, USDC processed approximately $1.26 trillion in adjusted transfer volume against Tether&rsquo;s $514 billion &mdash; more than double &mdash; despite USDC having a circulating supply ($79 billion) that is 2.3 times smaller than Tether&rsquo;s ($184 billion). This divergence between supply and velocity is the most important data point in Circle&rsquo;s long-term investment case.</p>
+
+      <p>The specific use cases being activated are multiplying. BlackRock&rsquo;s tokenised Treasury fund BUIDL uses USDC for subscription processing and redemptions. Polymarket and other prediction markets settled over $22 billion in trading volume in 2025 primarily through USDC. Visa supports over 130 stablecoin-linked cards across 50 countries processing approximately $4.6 billion in annualised settlement volume. During the Iran conflict in February 2026, demand for USDC in the Middle East spiked as traditional banking rails were disrupted. These are not theoretical use cases; they are live transactions demonstrating that USDC is embedding itself into institutional and retail financial plumbing.</p>
+
+      <p>Stanley Druckenmiller, speaking in a Morgan Stanley interview in late January 2026, stated he expects global payment systems to run on stablecoins within ten to fifteen years. That framing &mdash; from arguably the most credible macro investor of his generation &mdash; provides intellectual permission for the bull case: the addressable market is not the stablecoin market; it is the entire global payments market.</p>
+
+      <h3>3.2 Building Beyond the Float</h3>
+      <p>Circle is attempting, urgently and with some success, to build revenue streams that do not depend on Treasury yields. The Circle Payments Network connects 55 financial institutions and runs at $5.7 billion in annualised volume. Arc, Circle&rsquo;s proprietary Layer-1 blockchain, is designed as a settlement infrastructure that does not depend on Ethereum or Solana. In the AI payments space, Circle launched Nanopayments in early 2026: gasless USDC transfers as small as $0.000001, designed for AI agent-to-agent transactions. With over 400,000 AI agents currently holding purchasing power and 98.6% of those payments settling in USDC, the AI payment rail thesis is early but directionally interesting.</p>
+
+      <p>Critically, these adjacencies are still embryonic in revenue terms. Reserve interest income remains approximately 90% of total revenue. Circle needs at least two to three more years of build-out before these adjacencies can materially offset rate sensitivity.</p>
+
+      <h3>3.3 Competitive Landscape</h3>
+      <p>Tether remains the dominant stablecoin by supply but faces growing institutional credibility challenges that Circle does not. Circle&rsquo;s regulatory posture of &ldquo;extreme compliance,&rdquo; reinforced by the addition of former Federal Reserve and Treasury officials to its board and executive suite post-IPO, positions it as the preferred stablecoin for institutional and regulated use cases. The passage of the GENIUS Act has been a tailwind for Circle specifically, as it codifies the compliance standards Circle has already built.</p>
+
+      <p>The more nuanced competitive risk is not from Tether but from bank-issued stablecoins. Major US banks lobbied actively for the CLARITY Act&rsquo;s yield-restriction provisions precisely because they see Circle&rsquo;s current yield-sharing model as an unfair competitive threat to their deposit-taking franchise. This is the long-form version of the regulatory risk &mdash; not just one bad bill, but a structural push by the banking lobby to constrain stablecoin issuers&rsquo; competitive advantage.</p>
+
+      <h3>3.4 Management and the August 2026 Binary</h3>
+      <p>Jeremy Allaire as CEO and Chairman is a dual-role governance concern, though the post-IPO board appointments from the regulatory establishment somewhat mitigate this risk. The company&rsquo;s &ldquo;extreme compliance&rdquo; strategic posture has genuine merit: it positions Circle as the beneficiary of regulatory clarity rather than its victim. However, 49 insider sales and zero purchases in the six months post-IPO &mdash; including $46.9 million in sales by Allaire himself &mdash; suggest insiders are treating the current price range as a distribution event rather than an accumulation opportunity. This does not doom the investment case, but it is a behavioural signal that should temper conviction.</p>
+
+      <p>The August 2026 Coinbase renegotiation is the most material near-term catalyst, positive or negative, for Circle shareholders. The current agreement, which gives Coinbase 100% of on-platform reserve income and 50% of off-platform income, was structured at a time when USDC was a nascent product and Coinbase&rsquo;s distribution was essential. USDC at $79 billion in supply, with institutional rails and growing velocity independent of Coinbase&rsquo;s platform, changes the negotiating dynamics.</p>
+
+      <!-- SECTION IV -->
+      <h2>IV &mdash; Risk Assessment</h2>
+
+      <div class="killer-grid">
+        <div class="killer-card red">
+          <div class="killer-title">&#128308; Regulatory Sword</div>
+          <div class="killer-body">CLARITY Act draft bans yield payments &ldquo;economically equivalent to interest.&rdquo; If enacted, it eliminates the distribution incentive driving USDC adoption on Coinbase. Structurally existential for current revenue model.</div>
+        </div>
+        <div class="killer-card red">
+          <div class="killer-title">&#128308; Product Cycle Cliff</div>
+          <div class="killer-body">~90% of revenue from a single variable: the federal funds rate &times; USDC supply. Each 25bps Fed cut costs ~$50M annually. Rate-diversified revenue is embryonic &mdash; less than 10% of total today.</div>
+        </div>
+        <div class="killer-card red">
+          <div class="killer-title">&#128308; Founder&rsquo;s Exit Signal</div>
+          <div class="killer-body">49 insider sales, zero purchases in 6 months post-IPO. CEO Allaire: $46.9M sold. Director Date: $44.6M sold. Cluster selling historically associated with &ndash;5% to &ndash;9% 12-month underperformance vs. sector.</div>
+        </div>
+        <div class="killer-card red">
+          <div class="killer-title">&#128308; Revenue Without Profit</div>
+          <div class="killer-body">FY2025 net loss &ndash;$70M (inc. $424M one-time SBC). Gross margin of 30&ndash;39% is structurally depressed by Coinbase arrangement. Distribution costs growing at 52% YoY (Q4 2025), outpacing revenue growth.</div>
+        </div>
+        <div class="killer-card amber">
+          <div class="killer-title">&#127939; Accounting Fog</div>
+          <div class="killer-body">Revenue recognition is transparent (T-bill interest income). Fog enters on cost classification and the $424M one-time SBC charge. Investors must adjust net income carefully to assess underlying profitability.</div>
+        </div>
+        <div class="killer-card amber">
+          <div class="killer-title">&#127939; CEO Governance</div>
+          <div class="killer-body">Allaire holds both CEO and Chairman roles. Partially mitigated by post-IPO board appointments from Fed and Treasury alumni. &ldquo;Extreme compliance&rdquo; posture reflects strategic discipline rather than governance capture.</div>
+        </div>
+        <div class="killer-card green">
+          <div class="killer-title">&#128994; Leverage</div>
+          <div class="killer-body">Zero long-term debt. $1.2B+ in corporate cash. Debt-to-equity of 1.1%. No refinancing risk, no covenant headroom issues. The balance sheet is genuinely pristine.</div>
+        </div>
+        <div class="killer-card amber">
+          <div class="killer-title">&#127939; Disruption Denial</div>
+          <div class="killer-body">Management is building defensively (Arc, Payments Network, Nanopayments). Not dismissive of risks. Tether&rsquo;s audit narrows compliance moat but validates the category. Disruption risk is regulatory rather than competitive at this stage.</div>
+        </div>
+      </div>
+
+      <h3>4.1 The CLARITY Act &mdash; Reading the Risk Properly</h3>
+      <p>The key word in the CLARITY Act draft is &ldquo;economically equivalent.&rdquo; The proposed language would ban not just explicit yield payments but anything that functions like interest &mdash; including Coinbase&rsquo;s 3.5% APY on USDC balances. If enacted in its current form, this collapses the primary incentive that has driven USDC supply growth on Coinbase&rsquo;s platform from 5% to 22% over three years.</p>
+
+      <p>Three important caveats apply. First, the full legislative text has not been published. Second, the US crypto regulatory process has a long history of proposals that are significantly modified between draft and enactment. Third, even if enacted, the SEC, CFTC, and Treasury have twelve months to implement rules &mdash; which creates a meaningful runway for Circle to adapt its distribution model.</p>
+
+      <div class="callout red">
+        <strong>Key risk calibration:</strong> The CLARITY Act is not a tail risk &mdash; it is a front-and-centre structural threat. But it is also not yet law. The appropriate position is to treat it as a high-probability event requiring scenario planning rather than an immediate binary. The stock at $101 does not yet adequately price the bear scenario ($34).
+      </div>
+
+      <h3>4.2 Coinbase Dependency</h3>
+      <p>The Coinbase arrangement is the dominant structural risk that persists regardless of what happens with the CLARITY Act. Even in a world where yield restrictions do not pass, Circle enters the August 2026 renegotiation from a position of structural weakness: the agreement auto-renews unless both parties agree to terminate, Coinbase holds veto rights over new partnerships, and Coinbase&rsquo;s 22% share of USDC supply gives it credible leverage to demand continued favourable economics.</p>
+
+      <h3>4.3 Rate Sensitivity</h3>
+      <p>Circle&rsquo;s revenue is among the most rate-sensitive of any public company. At $79 billion USDC supply, the annualised revenue impact of a full 100 basis points of Fed cuts is approximately $200 million &mdash; a 7% reduction in gross revenue. In a scenario where the Iran situation de-escalates, inflation falls, and the Fed resumes its cutting cycle, Circle faces a dual headwind: rate compression reducing the yield on reserves while simultaneously making Treasury-backed alternatives more competitive relative to a yield-free USDC.</p>
+
+      <!-- SECTION V -->
+      <h2>V &mdash; Multi-Scenario DCF Valuation</h2>
+
+      <h3>5.1 Methodology</h3>
+      <p>A discounted cash flow analysis is the appropriate primary valuation tool for Circle because the revenue stream, while volatile, is analytically tractable: it is a function of two observable variables (USDC supply and the federal funds rate) multiplied by a margin structure that can be modelled across scenarios. EV/Revenue multiples are used as a cross-check against fintech infrastructure peers. Key DCF inputs: base revenue $3.0 billion annualised from Q4 2025 run-rate; FCF margin 18%; WACC 12% (risk-free rate 4.25% + beta 1.75 &times; ERP 4.5%); terminal growth rates varying by scenario.</p>
+
+      <h3>5.2 Key Assumptions</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Assumption</th>
+            <th class="td-center">&#128308; Bear</th>
+            <th class="td-center">&#127939; Base</th>
+            <th class="td-center">&#128994; Bull</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Revenue CAGR (Years 1&ndash;5)</td><td class="td-center">12%</td><td class="td-center">40%</td><td class="td-center">55%</td></tr>
+          <tr><td>Revenue CAGR (Years 6&ndash;10)</td><td class="td-center">5%</td><td class="td-center">15%</td><td class="td-center">20%</td></tr>
+          <tr><td>Terminal Growth Rate</td><td class="td-center">0%</td><td class="td-center">3%</td><td class="td-center">4%</td></tr>
+          <tr><td>Normalised FCF Margin</td><td class="td-center">18%</td><td class="td-center">18%</td><td class="td-center">18%</td></tr>
+          <tr><td>WACC</td><td class="td-center">12%</td><td class="td-center">12%</td><td class="td-center">12%</td></tr>
+          <tr><td>Key Swing Factor</td>
+            <td class="td-center" style="font-size:12px;">Yield ban passes; rate cuts; Coinbase adverse</td>
+            <td class="td-center" style="font-size:12px;">CLARITY watered down; USDC at trend; Coinbase neutral</td>
+            <td class="td-center" style="font-size:12px;">Full infra re-rate; global payment standard; Coinbase favourable</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>5.3 Scenario Narratives</h3>
+      <p><strong>Bear Case ($33.88/share):</strong> The CLARITY Act passes in materially its current form, eliminating yield-based incentives for USDC holders on regulated platforms. Separately, the Fed resumes cutting as geopolitical risk fades and oil prices normalise, compressing reserve income. Revenue growth slows to 12%. This is not an extreme scenario &mdash; it is the logical outcome if two of the three key catalysts (regulation, rates, Coinbase) move adversely simultaneously.</p>
+
+      <p><strong>Base Case ($103.57/share):</strong> The CLARITY Act is modified or delayed, with yield ban provisions softened sufficiently to preserve the core revenue-sharing mechanics. USDC supply continues compounding at historical rates. The Fed holds rates through 2026 before modest cuts beginning in 2027. The Coinbase renegotiation produces broadly neutral terms. This scenario essentially prices in analyst consensus &mdash; it is what the market is paying for today at $101.</p>
+
+      <p><strong>Bull Case ($181.27/share):</strong> Circle achieves the infrastructure re-rating the market has periodically attempted to assign it. The GENIUS Act framework cements USDC&rsquo;s regulatory advantage. The CLARITY Act yield provisions are struck down or significantly narrowed. The Coinbase renegotiation in August 2026 produces moderately better economics for Circle. USDC becomes the settlement standard for tokenised assets, prediction markets, AI agent commerce, and cross-border banking rails.</p>
+
+      <h3>5.4 Per-Share Output and Market Pricing</h3>
+      <p>At the current price of $101.17, the market is implying a 5-year revenue CAGR of 39.3% &mdash; which sits squarely at the midpoint of analyst consensus. This is a fair-value price with respect to the base case and a deeply overvalued price with respect to the bear case. The asymmetry is striking: upside to the bull case is approximately 79% ($181); downside to the bear case is approximately 66% ($34). This is a bet where being right earns less than half of what being wrong costs.</p>
+
+      <h3>5.5 Comparable Valuation Context</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th class="td-right">EV/Rev (NTM)</th>
+            <th class="td-right">Revenue Growth</th>
+            <th class="td-right">Gross Margin</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Circle (CRCL)</td><td class="td-right">7.9x</td><td class="td-right">~30%+</td><td class="td-right">30&ndash;39%</td><td>Rate-sensitive; Coinbase drag</td></tr>
+          <tr><td>Coinbase (COIN)</td><td class="td-right">~8x</td><td class="td-right">~20%</td><td class="td-right">~75%+</td><td>Structurally long USDC with better economics</td></tr>
+          <tr><td>Visa (V)</td><td class="td-right">~14x</td><td class="td-right">~10%</td><td class="td-right">~80%</td><td>Premium justified by moat depth</td></tr>
+          <tr><td>PayPal (PYPL)</td><td class="td-right">~3x</td><td class="td-right">~5%</td><td class="td-right">~55%</td><td>Discount reflects declining growth</td></tr>
+          <tr><td>Block (SQ)</td><td class="td-right">~2x</td><td class="td-right">~10%</td><td class="td-right">~35%</td><td>Diversified but low multiple</td></tr>
+        </tbody>
+      </table>
+      <p>At 7.9&times; NTM revenue, Circle trades at a discount to Visa but a premium to most fintech peers. That premium is justified if the infrastructure thesis prevails. Coinbase, notably, is structurally better positioned within the same USDC ecosystem: it captures 100% of on-platform reserve income, has diversified revenue streams, and higher gross margins. For investors who want USDC exposure with better structural economics, COIN remains the cleaner expression of the thesis.</p>
+
+      <!-- SECTION VI -->
+      <h2>VI &mdash; Investment Conclusion</h2>
+
+      <p>Circle is a genuinely fascinating company caught between two truths that are simultaneously accurate and mutually contradictory. The first truth is that USDC is becoming real payment infrastructure &mdash; the velocity data, the institutional integrations, the AI agent payments, the Middle East remittance surge during the Iran conflict all confirm it. The second truth is that Circle&rsquo;s P&amp;L, as currently constructed, is a leveraged Treasury trade with a permanently disadvantageous cost structure imposed by its largest distribution partner.</p>
+
+      <p>Today&rsquo;s price of $101 represents neither a deep discount to the infrastructure story nor an adequate acknowledgement of the regulatory risk. The reverse DCF shows the market is pricing consensus expectations exactly &mdash; a 39.3% five-year revenue CAGR that leaves no margin of safety against the bear case. The bear case, at $34 per share, requires only two of the following three to materialise: the CLARITY Act passes in materially its current form, the Fed resumes cutting, and the Coinbase renegotiation produces neutral or adverse terms for Circle. None of these is an exotic scenario. All three are plausible within twelve months.</p>
+
+      <p>The investment conclusion is therefore not a rejection of the long-term thesis &mdash; which has genuine substance &mdash; but a statement about entry price and catalyst sequencing. The right time to build a position in CRCL is either (a) after the CLARITY Act risk is definitively resolved, (b) after the Coinbase renegotiation in August 2026 reveals improved economics for Circle, or (c) if the stock reprices toward the bear scenario (roughly $55&ndash;65 range) where even a moderate probability of the base case delivers a compelling expected return.</p>
+
+      <div class="callout amber">
+        <strong>Catalyst Watch List &mdash; the events that change the investment case:</strong><br>
+        <em>De-risk triggers (upgrade to BUY):</em> CLARITY Act yield provisions watered down or killed; Coinbase renegotiation delivers improved economics; USDC supply breakthrough above $120B.<br>
+        <em>Exit triggers (downgrade to SELL):</em> CLARITY Act passes as drafted; Fed signals two or more 2026 cuts; Coinbase renegotiation neutral-to-adverse; USDC supply growth stalls below 10% YoY.
+      </div>
+
+      <p><strong>Plain-language summary:</strong> Circle has built a genuine digital dollar business &mdash; USDC is now moving more money globally than Tether, and its infrastructure is embedded in BlackRock funds, Visa cards, and AI payment systems. The problem is that the company&rsquo;s profits are almost entirely dependent on US interest rates staying high, and its largest commercial partner captures over half of every dollar it earns. A new Senate bill is threatening to eliminate the yield-sharing incentive that has driven USDC adoption. At the current price of $101, the stock is fairly valued if everything goes right &mdash; and deeply undervalued if it doesn&rsquo;t. Watching, not buying, until the regulatory picture clears.</p>
+
+      <!-- DISCLAIMER -->
+      <div class="afooter">
+        <p><strong>Disclaimer:</strong> This analysis is produced for informational and educational purposes only and does not constitute a financial recommendation or a solicitation to buy or sell any security. All valuations are the author&rsquo;s estimates based on publicly available data as of 25 March 2026. The author may hold positions in securities mentioned. Past performance is not indicative of future results. All investments involve risk, including loss of principal.</p>
+        <p style="margin-top:8px;"><strong>Sources:</strong> Circle S-1 filing (investor.circle.com) &middot; Thejaswini M A, &ldquo;Circling Back to Circle,&rdquo; Token Dispatch (18 Mar 2026) &middot; CoinDesk, &ldquo;CRCL/COIN news: Circle, Coinbase tumbles&rdquo; (24 Mar 2026) &middot; CNBC, &ldquo;Circle heads for its worst day on record&rdquo; (24 Mar 2026) &middot; stockanalysis.com &middot; quiverquant.com (insider data) &middot; simplywall.st (balance sheet) &middot; Yahoo Finance Q4 2025 earnings highlights &middot; Mauboussin &amp; Callahan, &ldquo;Measuring the Moat&rdquo; (base rate data)</p>
+        <p style="margin-top:8px;">Analysis framework: Munger Inversion Principles &middot; Kostolany &ldquo;Holding the Leash&rdquo; Conviction Framework &middot; Investment Analysis Framework</p>
+      </div>
+
+    </div><!-- end .crcl -->
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Curious Onlooker. All rights reserved. &nbsp;&middot;&nbsp; Last updated: 25 March 2026 &nbsp;&middot;&nbsp; <a href="mailto:huanggongwu@gmail.com">Contact</a></p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
