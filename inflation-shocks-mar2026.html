@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inflation Shocks: Who Can Hold Rates Steady? &mdash; Curious Onlooker</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ---- Title block ---- */
+    .article-title-block {
+      background: #0d2b4f;
+      border-radius: 8px;
+      padding: 2.5rem 2rem 2rem;
+      margin: 0 0 2rem;
+      text-align: center;
+    }
+    .article-title-block h1 {
+      color: #fff;
+      font-size: 2rem;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
+    }
+    .article-title-block .title-sub {
+      color: #9bc4e8;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+    }
+    .article-title-block .title-byline {
+      color: #aac4e0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* ---- Section label ---- */
+    .section-label {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #0d2b4f;
+      border-bottom: 2px solid #0d2b4f;
+      padding-bottom: 0.35rem;
+      margin: 2.25rem 0 1rem;
+    }
+
+    /* ---- Hook block ---- */
+    .hook-label {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #0d2b4f;
+      border-bottom: 2px solid #c9a02f;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+    }
+    .hook-block p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #222;
+      margin-bottom: 0.6rem;
+    }
+
+    /* ---- Data tables ---- */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 0.85rem;
+      margin: 0.5rem 0 1.5rem;
+    }
+    .data-table th {
+      background: #0d2b4f;
+      color: #fff;
+      font-weight: 700;
+      padding: 0.55rem 0.75rem;
+      text-align: center;
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+    }
+    .data-table td {
+      padding: 0.55rem 0.75rem;
+      border-bottom: 1px solid #e0e0e0;
+      vertical-align: middle;
+    }
+    .data-table tr:nth-child(odd) td.body-cell {
+      background: #f5f5f5;
+    }
+    .data-table tr:nth-child(even) td.body-cell {
+      background: #fff;
+    }
+
+    /* status cells */
+    .cell-green  { background: #d4edda !important; color: #1e7e34; font-weight: 700; text-align: center; }
+    .cell-amber  { background: #fff3cd !important; color: #855404; font-weight: 700; text-align: center; }
+    .cell-red    { background: #f8d7da !important; color: #721c24; font-weight: 700; text-align: center; }
+    .cell-navy   { color: #0d2b4f; font-weight: 700; text-align: center; }
+
+    /* ---- Allocation table ---- */
+    .cell-ow   { background: #d4edda !important; color: #1e7e34; font-weight: 700; text-align: center; }
+    .cell-uw   { background: #f8d7da !important; color: #721c24; font-weight: 700; text-align: center; }
+    .cell-neu  { background: #fff3cd !important; color: #855404; font-weight: 700; text-align: center; }
+    .cell-avoid { background: #f8d7da !important; color: #721c24; font-weight: 700; text-align: center; }
+    .cell-fav  { background: #d4edda !important; color: #1e7e34; font-weight: 700; text-align: center; }
+
+    /* ---- Callout / quote box ---- */
+    .callout-gold {
+      background: #fff5cc;
+      border: 1px solid #c9a02f;
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0 1.5rem;
+      font-size: 0.97rem;
+      line-height: 1.65;
+      color: #222;
+    }
+    .callout-gold .attribution {
+      margin-top: 0.6rem;
+      font-size: 0.84rem;
+      color: #555;
+      font-style: italic;
+    }
+
+    /* ---- Body paragraphs with bold openers ---- */
+    .body-para {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #333;
+      margin-bottom: 1.1rem;
+      text-align: justify;
+    }
+    .body-para .opener {
+      color: #0d2b4f;
+      font-weight: 700;
+    }
+
+    /* ---- Divider ---- */
+    .section-divider {
+      border: none;
+      border-top: 1px solid #e0e0e0;
+      margin: 2.25rem 0;
+    }
+
+    /* ---- Table note ---- */
+    .table-note {
+      font-size: 0.8rem;
+      color: #666;
+      font-style: italic;
+      margin-bottom: 0.75rem;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    }
+
+    /* ---- Key takeaways box (dark) ---- */
+    .takeaways-box {
+      background: #1a1a1a;
+      color: #f0f0f0;
+      border-radius: 8px;
+      padding: 1.75rem 2rem;
+      margin: 2.5rem 0;
+    }
+    .takeaways-box h2 {
+      color: #fff;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #444;
+      padding-bottom: 0.6rem;
+    }
+    .takeaways-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .takeaways-box ul li {
+      padding: 0.55rem 0 0.55rem 1.2rem;
+      border-bottom: 1px solid #2a2a2a;
+      font-size: 0.93rem;
+      line-height: 1.6;
+      position: relative;
+    }
+    .takeaways-box ul li::before {
+      content: "›";
+      position: absolute;
+      left: 0;
+      color: #7aadcc;
+      font-weight: 700;
+    }
+    .takeaways-box ul li:last-child { border-bottom: none; }
+    .takeaways-box ul li strong { color: #fff; }
+
+    /* responsive tables */
+    @media (max-width: 640px) {
+      .data-table { font-size: 0.75rem; }
+      .data-table th, .data-table td { padding: 0.4rem 0.5rem; }
+      .article-title-block h1 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="site-title">Curious Onlooker</a>
+      <button class="menu-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav>
+        <ul>
+          <li><a href="index.html">About</a></li>
+          <li><a href="podcasts.html">Podcasts</a></li>
+          <li><a href="market-notes.html" class="active">Market Notes</a></li>
+          <li><a href="reading.html">Reading</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="article-nav">
+      <a href="market-notes.html">&larr; Back to Market Notes</a>
+    </div>
+
+    <article class="long-post">
+
+      <!-- Title block -->
+      <div class="article-title-block">
+        <h1>Inflation Shocks</h1>
+        <p class="title-sub">Who Can Hold Rates Steady?</p>
+        <p class="title-byline">Curious Onlooker Collaboration &nbsp;&middot;&nbsp; C Koh &amp; Wong &nbsp;&middot;&nbsp; March 2026</p>
+      </div>
+
+      <p class="post-date">28 March 2026</p>
+
+      <div class="article-attribution">
+        <p><strong>Collaboration:</strong> This piece was developed jointly by C Koh and Wong. C Koh&rsquo;s framework &mdash; &ldquo;find the economy that can raise rates slowest&rdquo; &mdash; is the analytical spine. Data sources: IEA, EIA, S&amp;P Global, IEEFA, CSIS. Market commentary references: CNBC, Bloomberg, Argus Media, BlackRock (Wei Li), WSJ. All third-party content attributed to respective authors and institutions.</p>
+      </div>
+
+      <!-- Opening hook -->
+      <div class="hook-label">◆&nbsp; The Setup</div>
+      <div class="hook-block">
+        <p>The Hormuz closure is not just an oil event &mdash; it is a central bank stress test.</p>
+        <p>Every economy now faces a forced choice: defend its currency or protect its growth.</p>
+        <p>The answer depends on one variable: how many days of oil can you buy yourself before the pain arrives.</p>
+        <p>Japan buys 254 days. India buys 45. <strong>That gap is the investment thesis.</strong></p>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- Section 1: Buffer table -->
+      <div class="section-label">1. The Buffer Table &mdash; Days of Breathing Room</div>
+      <p class="table-note">SPR inventory as % of net import days. Source: IEA / EIA / national energy ministries (March 2026).</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Economy</th>
+            <th>SPR (Days)</th>
+            <th>Hormuz Dependency</th>
+            <th>CB Constraint</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cell-amber">Japan</td>
+            <td class="cell-amber">254</td>
+            <td class="body-cell">&gt;90%</td>
+            <td class="body-cell">Least constrained &mdash; 8+ months of buffer</td>
+          </tr>
+          <tr>
+            <td class="cell-green">USA</td>
+            <td class="cell-green">146</td>
+            <td class="body-cell">Low</td>
+            <td class="body-cell">Moderate &mdash; domestic pump = political risk</td>
+          </tr>
+          <tr>
+            <td class="cell-amber">China</td>
+            <td class="cell-amber">~108</td>
+            <td class="body-cell">84%</td>
+            <td class="body-cell">Moderate &mdash; state caps absorb shock initially</td>
+          </tr>
+          <tr>
+            <td class="cell-amber">Europe</td>
+            <td class="cell-amber">~90</td>
+            <td class="body-cell">High (LNG)</td>
+            <td class="body-cell">High &mdash; stagflation squeeze; ECB cornered</td>
+          </tr>
+          <tr>
+            <td class="cell-red">India</td>
+            <td class="cell-red">~45</td>
+            <td class="body-cell">Very high</td>
+            <td class="body-cell">Extreme &mdash; INR at risk; RBI defence costly</td>
+          </tr>
+          <tr>
+            <td class="cell-red">SE Asia</td>
+            <td class="cell-red">20&ndash;60</td>
+            <td class="body-cell">Very high</td>
+            <td class="body-cell">Extreme &mdash; subsidy budgets near exhaustion</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="section-divider">
+
+      <!-- Section 2: CB implications table -->
+      <div class="section-label">2. The Key Table &mdash; Economy &times; Central Bank Implications</div>
+      <p class="table-note">C Koh&rsquo;s framework: rates drive asset performance. Who is forced to hike? Who can sit still? That answers the portfolio question.</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Economy</th>
+            <th>Shock Severity</th>
+            <th>CB Dilemma</th>
+            <th>Rate Path</th>
+            <th>Currency Outlook</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cell-amber">Japan</td>
+            <td class="cell-amber">Moderate</td>
+            <td class="body-cell">Hold rates to support growth; 8-month buffer = flexibility</td>
+            <td class="cell-navy">Gradual &mdash; BoJ not forced</td>
+            <td class="body-cell">JPY: steady to firm</td>
+          </tr>
+          <tr>
+            <td class="cell-green">USA</td>
+            <td class="cell-green">Low</td>
+            <td class="body-cell">Inflation creep vs. growth; domestic pump politics</td>
+            <td class="cell-navy">On hold &mdash; Fed in wait-and-see mode</td>
+            <td class="body-cell">USD: firm (petro-hedge)</td>
+          </tr>
+          <tr>
+            <td class="cell-amber">China</td>
+            <td class="cell-amber">High</td>
+            <td class="body-cell">Deflation meets import inflation; state caps suppress CPI</td>
+            <td class="cell-navy">Hold &mdash; PBOC absorbs via refiners</td>
+            <td class="body-cell">RMB: mildly pressured</td>
+          </tr>
+          <tr>
+            <td class="cell-amber">Europe</td>
+            <td class="cell-amber">High</td>
+            <td class="body-cell">Stagflation &mdash; ECB can&rsquo;t cut; diesel &gt;&euro;2/L already</td>
+            <td class="cell-navy">Higher for longer &mdash; ECB cornered</td>
+            <td class="body-cell">EUR: weakens vs USD</td>
+          </tr>
+          <tr>
+            <td class="cell-red">India</td>
+            <td class="cell-red">Extreme</td>
+            <td class="body-cell">Defend INR or protect growth &mdash; cannot do both</td>
+            <td class="cell-navy">Defensive hike &mdash; RBI forced to act</td>
+            <td class="body-cell">INR &rarr; 100/USD risk</td>
+          </tr>
+          <tr>
+            <td class="cell-red">SE Asia</td>
+            <td class="cell-red">Extreme</td>
+            <td class="body-cell">Subsidy exhaustion &rarr; shock hike when budgets snap</td>
+            <td class="cell-navy">Forced hike &mdash; fiscal wall approaching</td>
+            <td class="body-cell">SGD/THB/IDR: pressured</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="section-divider">
+
+      <!-- Section 3: Japan -->
+      <div class="section-label">3. Japan&rsquo;s Strategic Position &mdash; The Quiet Winner</div>
+
+      <p class="body-para"><span class="opener">Japan&rsquo;s 254-day buffer is not an accident.</span> Decades of deliberate stockpiling &mdash; driven by the memory of the 1973 oil shock &mdash; mean that the Bank of Japan faces less inflation pressure than any other major central bank. While the ECB is cornered and the RBI is forced to choose between its currency and its growth, the BoJ can move gradually. That policy flexibility is the investment edge.</p>
+
+      <p class="body-para"><span class="opener">Sogo Sosha &mdash; Buffett&rsquo;s genius confirmed.</span> Japan&rsquo;s great trading houses (Sogo Sosha) &mdash; Mitsubishi, Mitsui, Sumitomo, Marubeni, Itochu &mdash; secured long-dated energy futures years ago. When the Hormuz logistics bottleneck bites, these firms can buy crude on the forward curve and take delivery six months later, bypassing the spot market chaos entirely. The thesis Buffett backed in 2020 is now paying off in ways even he may not have anticipated.</p>
+
+      <p class="body-para"><span class="opener">EUR should appreciate against JPY.</span> The rate divergence is the mechanism: the ECB is forced higher for longer (stagflation), while the BoJ stays gradual. Rate differentials historically drive FX. The irony is that Japan&rsquo;s energy resilience &mdash; its greatest economic strength in this crisis &mdash; becomes a relative currency headwind as BoJ hikes lag ECB hikes.</p>
+
+      <p class="body-para"><span class="opener">On this score, Japan is a super overweight.</span> The combination of the largest SPR buffer, the most policy-flexible central bank, and structurally energy-hedged corporates makes Japan the standout conviction position in a Hormuz-disrupted world.</p>
+
+      <hr class="section-divider">
+
+      <!-- Section 4: Asset allocation -->
+      <div class="section-label">4. Asset Allocation Overlay</div>
+      <p class="table-note">Not investment advice. For discussion purposes only. Positioning reflects the SPR buffer and rate path framework above.</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Stance</th>
+            <th>Region / Asset</th>
+            <th>Rationale</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cell-ow">Overweight</td>
+            <td class="body-cell"><strong>USA, Japan, Brazil</strong></td>
+            <td class="body-cell">Energy sovereign / largest buffers; BoJ/Fed least forced to hike</td>
+          </tr>
+          <tr>
+            <td class="cell-neu">Neutral</td>
+            <td class="body-cell"><strong>China</strong></td>
+            <td class="body-cell">Massive stockpile but 84% maritime exposed; state caps absorb short-term</td>
+          </tr>
+          <tr>
+            <td class="cell-uw">Underweight</td>
+            <td class="body-cell"><strong>Europe, India, SE Asia</strong></td>
+            <td class="body-cell">Import drain + currency pressure + CB forced to hike into slowing growth</td>
+          </tr>
+          <tr>
+            <td class="cell-avoid">Avoid</td>
+            <td class="body-cell"><strong>Leveraged assets (REITs, geared tech)</strong></td>
+            <td class="body-cell">Rate + margin double squeeze; refinancing cost rises hit hardest</td>
+          </tr>
+          <tr>
+            <td class="cell-fav">Favour</td>
+            <td class="body-cell"><strong>Healthcare, Consumer Staples, Copper</strong></td>
+            <td class="body-cell">Inelastic demand (healthcare/staples); copper = energy-transition inflation play</td>
+          </tr>
+          <tr>
+            <td class="cell-fav">Copper &gt; Gold</td>
+            <td class="body-cell"><strong>Industrial metals vs. gold</strong></td>
+            <td class="body-cell">Gold is now rate-correlated; copper is the structural inflation hedge for the energy transition</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="section-divider">
+
+      <!-- Section 5: Food chain -->
+      <div class="section-label">5. The Food Chain Effect</div>
+
+      <div class="callout-gold">
+        <p>&ldquo;Even for a staple like sushi, rising oil permeates everything. <strong>Fishing boats need fuel.</strong> <strong>Logistics costs are fuel.</strong> <strong>Rental in prime locations rises with capex costs.</strong> The multiplier runs up the entire food chain.&rdquo;</p>
+        <p class="attribution">&mdash; C Koh, March 2026</p>
+      </div>
+
+      <p class="body-para">This is the PPI-to-CPI transmission mechanism in microcosm. Energy costs are not confined to petrol stations. They embed in every layer of the supply chain: production, cold storage, last-mile delivery, commercial rents. The economies with the longest buffers buy the most time before these multiplier effects compound into headline inflation numbers the central bank must respond to.</p>
+
+      <hr class="section-divider">
+
+      <!-- Section 6: Conclusion -->
+      <div class="section-label">6. Conclusion &mdash; The Rate Race</div>
+
+      <p class="body-para"><span class="opener">The framework is simple.</span> Find the economy that can raise rates slowest. That economy&rsquo;s assets will outperform because its central bank is not being forced to trade growth for stability.</p>
+
+      <p class="body-para"><span class="opener">Japan and the United States</span> are the most buffered. The BoJ can stay gradual. The Fed can stay on hold. Their equity markets and currencies face less rate-driven headwind than the rest of the world.</p>
+
+      <p class="body-para"><span class="opener">Europe and South-East Asia</span> are the most constrained. The ECB faces a stagflation trap &mdash; it cannot cut without losing credibility, and it cannot ignore growth. ASEAN governments face a fiscal cliff as subsidy budgets exhaust. When the subsidy wall breaks, inflation arrives suddenly.</p>
+
+      <p class="body-para"><span class="opener">India is the outlier to watch.</span> The INR approaching 100/USD is not just a currency story &mdash; it is a confidence event. If the RBI is forced to raise rates into a slowing economy to defend the currency, Indian equities face a double squeeze from rising discount rates and falling corporate margins.</p>
+
+      <p class="body-para"><span class="opener">Stagflation risk is the portfolio killer, not the oil price itself.</span> A high Brent price is manageable if your central bank can hold steady. The real danger is the economy where the central bank is forced to hike into slowing growth &mdash; and that list is longer than the market currently prices. Banks dare not write this. The market has not fully priced the divergence.</p>
+
+      <!-- Key takeaways -->
+      <div class="takeaways-box">
+        <h2>Key Takeaways</h2>
+        <ul>
+          <li><strong>The SPR buffer determines CB flexibility.</strong> Japan (254 days) and the US (146 days) have the most room. India (&sim;45 days) and SE Asia (20&ndash;60 days) have almost none.</li>
+          <li><strong>The ECB is the most constrained major central bank.</strong> Stagflation &mdash; high import inflation + slowing growth &mdash; removes optionality. Higher for longer is the only credible path.</li>
+          <li><strong>BoJ is the most policy-flexible central bank.</strong> Gradual normalisation, not forced hikes. Japan equity and JGB markets absorb less rate-driven turbulence than Europe or EM.</li>
+          <li><strong>Sogo Sosha forward-curve energy hedges are now paying off.</strong> Long-dated futures booked years ago bypass spot chaos. Buffett&rsquo;s 2020 thesis validated under conditions he likely did not model explicitly.</li>
+          <li><strong>Copper over gold in this regime.</strong> Gold trades increasingly as a rate instrument. Copper is the physical inflation hedge tied to the energy-transition industrial cycle.</li>
+          <li><strong>The food chain effect compounds with a lag.</strong> PPI-to-CPI transmission is not instant. Economies with thin buffers will see second-round inflation effects arrive 3&ndash;6 months after the supply shock, just as their CBs are most constrained.</li>
+        </ul>
+      </div>
+
+      <!-- Sources -->
+      <div class="sources">
+        <h3>Attribution &amp; Sources</h3>
+        <ul>
+          <li><strong>C Koh &amp; Wong</strong> &mdash; Curious Onlooker Collaboration, March 2026. C Koh&rsquo;s &ldquo;find the economy that can raise rates slowest&rdquo; framework and the food chain observation are his original contributions.</li>
+          <li><strong>IEA (International Energy Agency)</strong> &mdash; Strategic Petroleum Reserve data and import dependency figures.</li>
+          <li><strong>EIA (US Energy Information Administration)</strong> &mdash; US SPR and domestic production data.</li>
+          <li><strong>S&amp;P Global, IEEFA, CSIS</strong> &mdash; Regional energy and LNG dependency analysis.</li>
+          <li><strong>BlackRock / Wei Li</strong> &mdash; &ldquo;Equities are mispricing energy risk&rdquo; &mdash; cited as market commentary reference.</li>
+          <li><strong>CNBC, Bloomberg, Argus Media, WSJ</strong> &mdash; Market commentary and commodity price references.</li>
+        </ul>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="disclaimer">
+        <p><strong>Disclaimer:</strong> This document is produced for informational and discussion purposes only. It does not constitute investment advice, a recommendation, or an offer to buy or sell any security, financial instrument, or asset. The views expressed are those of the authors as of March 2026 and are subject to change without notice. Past performance is not indicative of future results. All investments carry risk, including the risk of total loss of capital. Readers should conduct their own research and seek independent professional advice before making any investment decision. The authors and Curious Onlooker make no warranty as to the accuracy or completeness of the information contained herein.</p>
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Curious Onlooker. All rights reserved. &nbsp;&middot;&nbsp; Last updated: 28 March 2026 &nbsp;&middot;&nbsp; <a href="mailto:huanggongwu@gmail.com">Contact</a></p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
